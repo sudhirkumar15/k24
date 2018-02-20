@@ -1,0 +1,257 @@
+<div class="wrapper">
+
+    {{> default/menu }}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>User Dashboard</h1>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box filter-container">
+                        <div class="box-header small">
+                            <h3 class="box-title">Filters</h3>
+                            <div class="pull-right box-tools">
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <form action="" class="form-inline" id="datepicker-range">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Date </label>
+                                        <input type="text" class="form-control drpicker-input" name="daterange" value="{{fromDate}} - {{toDate}}" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Site </label>
+                                        <select  class="store-select-box"  data-placeholder="Select site">
+                                            {{#each user.stores}}
+                                                <option {{{selectOption ../query.storeId id }}} >{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Institution</label>
+                                        <div class="segment-option">
+                                            <select multiple="true"  class="select-box-large institution"
+                                                data-placeholder="All Institutions"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                     <div class="col-md-12">
+                                        <label class="label-large"> </label>
+
+                                        <button class="btn btn-primary btnApply" type="button">
+                                            <i class="fa fa-play"></i> Apply
+                                        </button>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="user-details" data-event="activeUsers" href="#">Active User Count</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique users who used the application in the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="sessions">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="user-details" data-event="newUsers" href="#">New User Count</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique users accessing the application for the first time">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="sessions-new">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="user-details" data-event="bookDownloadComplete" href="#">User Count - Book Download</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique users who downloaded books in the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="book-downloads">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="user-details" data-event="bookOpen" href="#">User Count - Book Open</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique users who opened books in the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="book-open">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="user-details" data-event="searchResult" href="#">User Count - Searches</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique users who searched books in the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="book-search">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="user-details" data-event="noteAdd" href="#">User Count - Notes</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique users who added notes in the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="book-notes">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="top-user-details" data-event="bookDownloadComplete" href="#">Top Users - Book Download</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="Top five users who have downloaded the maximum number of books, and their download count"><i class="fa fa-question-circle"></i></span>
+                        </div>
+                        <div class="top-user-download">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="top-user-details" data-event="bookOpen" href="#">Top Users - Book Views</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="Top five users who have opened the maximum number of books, and their download count"><i class="fa fa-question-circle"></i></span>
+                        </div>
+                        <div class="top-user-open">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="wrapper">
+
+    {{> default/menu }}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>PDF Heatmap</h1>
+            <ol class="breadcrumb">
+                <li><a class="bredcrumbs" href="/books/dashboard">Book Dashboard</a></li>
+                <li><a class="bredcrumbs" href="/books/activity">Top Books</a></li>
+                <li class="active">PDF Heatmap</li>
+            </ol>
+        </section>
+
+        <section class="content" >
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box filter-container">
+                        <div class="box-header small">
+                            <h3 class="box-title">Filters</h3>
+                            <div class="pull-right box-tools">
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <form action="" class="form-inline" id="datepicker-range">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Report</label>
+                                        <div class="segment-option">
+                                            <select class="select-box-large event-type" data-placeholder="Select Activity">
+                                                <option {{{selectOption product.event 'pageView'}}}>PageViews</option>
+                                                <option {{{selectOption product.event 'noteAdd'}}}>Notes</option>
+                                                <option {{{selectOption product.event 'bookmarkAdd'}}}>Bookmarks</option>
+                                                <option {{{selectOption product.event 'highlightAdd'}}}>Highlights</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Date </label>
+                                        <input type="text" class="form-control drpicker-input" name="daterange" value="{{fromDate}} - {{toDate}}" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Site </label>
+                                        <select  class="store-select-box"  data-placeholder="Select site">
+                                            {{#each user.stores}}
+                                                <option {{{selectOption ../product.storeId id }}}>{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Book</label>
+                                        <div class="segment-option">
+                                            <select  class="select-box-large book" data-placeholder="Select Book">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Institution</label>
+                                        <div class="segment-option">
+                                            <select multiple="true"  class="select-box-large institution"
+                                                data-placeholder="All Institutions"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Filter by</label>
+                                        <div class="segment-option">
+                                            <select  class="select-box-large filter-by" data-placeholder="Select Filter">
+                                                <option {{{selectOption product.filterType 'device_platform'}}}>Platform</option>
+                                                <option {{{selectOption product.filterType 'device_make'}}} >Device Make</option>
+                                                <option {{{selectOption product.filterType 'device_model'}}} >Device Model</option>
+                                                <option {{{selectOption product.filterType 'app_version'}}} >App Version</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row filter-val-row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Filter options</label>
+                                        <div class="segment-option">
+                                            <select multiple="true" class="select-box-large filters" data-placeholder=" Select Value">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                     <div class="col-md-12">
+                                        <label class="label-large"> </label>
+                                        <button class="btn btn-primary btnApply" type="button">
+                                            <i class="fa fa-play"></i> Apply
+                                        </button>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-default heatmap-report">
+                        <div class="box-header">
+                            <h3 class="box-title">Heatmap</h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="Heatmap reports"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                            <div class="pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart-data">
+                                <div class="loading">
+                                    <div class="spinner">
+                                      <div class="rect1"></div>
+                                      <div class="rect2"></div>
+                                      <div class="rect3"></div>
+                                      <div class="rect4"></div>
+                                      <div class="rect5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+        </section>
+    </div>
+</div>

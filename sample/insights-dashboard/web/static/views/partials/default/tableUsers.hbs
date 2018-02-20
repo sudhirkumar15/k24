@@ -1,0 +1,24 @@
+<table class="table table-bordered table-striped report-list">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Institution</th>
+        <th>{{tableHeader}}</th>
+    </thead>
+    <tbody>
+        {{#each rows}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{institutionId}}
+                    {{#if institutionName}}
+                        - {{institutionName}}
+                    {{/if}}
+                </td>
+                <td>{{count}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

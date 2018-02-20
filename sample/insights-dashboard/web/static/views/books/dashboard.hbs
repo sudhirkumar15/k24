@@ -1,0 +1,268 @@
+<div class="wrapper">
+
+    {{> default/menu }}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Book Dashboard</h1>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box filter-container">
+                        <div class="box-header small">
+                            <h3 class="box-title">Filters</h3>
+                            <div class="pull-right box-tools">
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <form action="" class="form-inline" id="datepicker-range">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Date </label>
+                                        <input type="text" class="form-control drpicker-input" name="daterange" value="{{fromDate}} - {{toDate}}" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Site </label>
+                                        <select  class="store-select-box"  data-placeholder="Select site">
+                                            {{#each user.stores}}
+                                                <option {{{selectOption ../query.storeId id }}} >{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Institution</label>
+                                        <div class="segment-option">
+                                            <select multiple="true"  class="select-box-large institution"
+                                                data-placeholder="All Institutions"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Books</label>
+                                        <div class="segment-option">
+                                            <select multiple="true"  class="select-box-large book" data-placeholder="Select Books">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                     <div class="col-md-12">
+                                        <label class="label-large"> </label>
+
+                                        <button class="btn btn-primary btnApply" type="button">
+                                            <i class="fa fa-play"></i> Apply
+                                        </button>
+                                     </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">
+                                <a class="book-details" data-event="bookDownloadComplete" href="#">Book Download</a>
+                            </h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of unique book downloads for the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="book-download">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="book-details" data-event="bookOpen" href="#">Book Open</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of book open activity for the selected duration">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="book-open">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="book-details" data-event="noteAdd" href="#">Notes</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of book notes created for the selected duration">
+                                <i class="fa fa-question-circle"></i>
+                            </span>
+                        </div>
+                        <div class="book-notes">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="book-details" data-event="highlightAdd" href="#">Highlights</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of book highlights created for the selected duration">
+                                <i class="fa fa-question-circle"></i>
+                            </span>
+                        </div>
+                        <div class="book-highlight">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="book-details" data-event="searchResult" href="#">Searches</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                                title="Count of book searches performed for the selected duration">
+                                <i class="fa fa-question-circle"></i>
+                            </span>
+                        </div>
+                        <div class="book-search">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="book-details" data-event="timespent" href="#">Time Spent</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top"
+                            title="Total hours spent across books for the selected duration">
+                                <i class="fa fa-question-circle"></i>
+                            </span>
+                        </div>
+                        <div class="book-timespent">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="top-book-details" data-event="bookDownloadComplete" href="#">Top Books - Book Download</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="Top books downloaded"><i class="fa fa-question-circle"></i></span>
+                        </div>
+                        <div class="top-book-download">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><a class="top-book-details" data-event="bookOpen" href="#">Top Books - Book Open</a></h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="Top books opened"><i class="fa fa-question-circle"></i></span>
+                        </div>
+                        <div class="top-book-open">
+                            <div class="loading">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>

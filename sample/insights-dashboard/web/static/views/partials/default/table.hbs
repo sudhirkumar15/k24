@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped report-list">
+    <thead>
+        <th>Date</th>
+        <th>Event Count</th>
+        {{#if segment}}
+            <th>{{segment}}</th>
+        {{/if}}
+    </thead>
+    <tbody>
+        {{#each rows}}
+            <tr>
+                <td>{{timestamp}}</td>
+                <td>{{count}}</td>
+                {{#if segment}}
+                    <td>{{segment}}</td>
+                {{/if}}
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

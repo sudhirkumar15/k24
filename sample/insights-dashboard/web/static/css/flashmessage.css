@@ -1,0 +1,85 @@
+
+.flash-msgs {
+    margin:5px auto 5px auto;
+    width:65%;
+    position:relative;
+    border:solid 1px #ccc;
+    -webkit-border-radius:4px;
+       -moz-border-radius:4px;
+            border-radius:4px;
+    -webkit-box-shadow:1px 1px 3px rgba(0,0,0,0.1);
+       -moz-box-shadow:1px 1px 3px rgba(0,0,0,0.1);
+    box-shadow:1px 1px 3px rgba(0,0,0,0.1);
+    padding:10px 10px;
+    font-size:12px;
+    text-align: left;
+	background:#FFFFFF;
+	overflow:hidden;
+}
+
+.flash-msgs h2 {
+    margin:0px 0px 0px !important;
+    font-family:'Open Sans';
+    font-size:12px !important;
+    line-height: normal !important;
+    text-transform:uppercase !important;
+	width:10%;
+	float:left;
+}
+
+.flash-msgs h2 span {
+    margin:0;
+    padding:2px 10px;
+    color:#fff;
+    display: inline-block;
+    text-transform:uppercase;
+    background:#666;
+	-webkit-border-radius:4px;
+       -moz-border-radius:4px;
+            border-radius:4px;
+}
+
+.flash-msgs ul {
+    margin:0px 0px 0px 0px;
+    padding:0;
+	width:90%;
+	float:left;
+}
+
+.flash-msgs ul li {
+    margin-left:25px;
+	line-height:20px;
+}
+
+.flash-msgs .close {
+    padding:10px;
+    position:absolute;
+    top:0;
+    right:5px;
+    color:#aaa;
+    text-decoration:none;
+    opacity: 1;
+}
+
+.flash-msgs.success h2 span {
+    background:#00c970;
+}
+
+.flash-msgs.error h2  span {
+    background:#d44;
+}
+
+.flash-msgs.info h2  span {
+    background:#0088cc;
+}
+
+.flash-msgs.warning h2  span {
+    background:#b46a04;
+}
+
+@media (min-width:320px) and (max-width:768px) 
+{
+	.flash-msgs{ width:90%;}
+	.flash-msgs h2 {width:25%;}
+	.flash-msgs ul  {width:75%;}
+}

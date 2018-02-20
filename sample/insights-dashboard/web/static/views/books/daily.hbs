@@ -1,0 +1,197 @@
+<div class="wrapper">
+
+    {{> default/menu }}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Activity By Date</h1>
+            <ol class="breadcrumb">
+                <li><a class="bredcrumbs" href="/books/dashboard" >Book Dashboard</a></li>
+                <li class="active" >Activity By Date</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box filter-container">
+                        <div class="box-header small">
+                            <h3 class="box-title">Filters</h3>
+                            <div class="pull-right box-tools">
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-inline" id="datepicker-range">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Date </label>
+                                        <input type="text" class="form-control drpicker-input" name="daterange" value="{{fromDate}} - {{toDate}}" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Report</label>
+                                        <div class="segment-option">
+                                            <select class="select-box-large event-type" data-placeholder="Select Report">
+                                                <option {{{selectOption query.event 'bookDownloadComplete'}}}>Books Downloaded</option>
+                                                <option {{{selectOption query.event 'bookOpen'}}}>Books Opened</option>
+                                                <option {{{selectOption query.event 'bookmarkAdd'}}}>Bookmarks</option>
+                                                <option {{{selectOption query.event 'noteAdd'}}}>Notes</option>
+                                                <option {{{selectOption query.event 'highlightAdd'}}}>Highlights</option>
+                                                <option {{{selectOption query.event 'searchResult'}}}>Searches</option>
+                                                <option {{{selectOption query.event 'pageView'}}}>Page Views (PDF)</option>
+                                                <option {{{selectOption query.event 'contentView'}}}>Content Views (EPUB)</option>
+                                                <option {{{selectOption query.event 'timespent'}}}>Time Spent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Site </label>
+                                        <select  class="store-select-box"  data-placeholder="Select site">
+                                            {{#each user.stores}}
+                                                <option {{{selectOption ../query.storeId id }}}>{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Institution</label>
+                                        <div class="segment-option">
+                                            <select multiple="true" class="select-box-large institution"
+                                                data-placeholder="All Institutions"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Books</label>
+                                        <div class="segment-option">
+                                            <select multiple="true" class="select-box-large book" data-placeholder="Select Books"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Filter by</label>
+                                        <div class="segment-option">
+                                            <select  class="select-box-large filter-by" data-placeholder="Select Filter">
+                                                <option value="device_platform">Platform</option>
+                                                <option value="device_make">Device Make</option>
+                                                <option value="device_model">Device Model</option>
+                                                <option value="app_version">App Version</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row filter-val-row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Filter options</label>
+                                        <div class="segment-option">
+                                            <select multiple="true" class="select-box-large filters" data-placeholder=" Select Value">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                     <div class="col-md-12">
+                                        <label class="label-large"> </label>
+
+                                        <button class="btn btn-primary btnApply" type="button">
+                                            <i class="fa fa-play"></i> Apply
+                                        </button>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-default book-daily-report">
+                        <div class="box-header">
+                            <h3 class="box-title">Activity By Date</h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="Books"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+
+                            <div class="pull-right">
+                                <div class="btn-group chart-type">
+                                    <button type="button" class="btn btn-transparent" name="area" data-toggle="tooltip" data-placement="top" title="Area chart"><i class="fa fa-area-chart"></i></button>
+                                    <button type="button" class="btn btn-transparent active" name="column" data-toggle="tooltip" data-placement="top" title="Column chart"><i class="fa fa-bar-chart"></i></button>
+                                    <button type="button" class="btn btn-transparent" name="line" data-toggle="tooltip" data-placement="top" title="Line chart"><i class="fa fa-line-chart"></i></button>
+                                    <button type="button" class="btn btn-transparent" name="scatter" data-toggle="tooltip" data-placement="top" title="Scatter plot"><i class="fa fa-circle-thin"></i></button>
+                                </div>
+
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="top-books">
+                                <div class="loading">
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header">
+                            <h3 class="box-title">Data</h3>
+                            <div class="pull-right">
+                                <form name="export" method="post" action="/books/export">
+                                    <input type="hidden" name="export" value="">
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                    <button class="btn btn-box-tool btn-export" type="submit">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <span>Export</span>
+                                    </button>
+                                    <button class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="bookdata">
+                                <div class="loading">
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </section>
+    </div>
+</div>

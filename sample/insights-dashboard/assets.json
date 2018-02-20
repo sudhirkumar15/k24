@@ -1,0 +1,46 @@
+{
+  "funnel": {
+    "js": "/static/build/funnel.1825fff93e9c6456ab7c.js"
+  },
+  "landing": {
+    "js": "/static/build/landing.4a14de0765d7654387b4.js",
+    "css": "/static/build/landing.463e5f275e8eb71582f661a3b56c8fe1.css"
+  },
+  "userDailyReport": {
+    "js": "/static/build/userDailyReport.2f56e2cd2583acf482f0.js"
+  },
+  "userActivity": {
+    "js": "/static/build/userActivity.5663411840bbb919c5a7.js"
+  },
+  "pdfHeatmap": {
+    "js": "/static/build/pdfHeatmap.0b48516f9caaff746258.js"
+  },
+  "event": {
+    "js": "/static/build/event.84403881ad395f220e1b.js"
+  },
+  "epubHeatmap": {
+    "js": "/static/build/epubHeatmap.129a9b04b3381772312a.js"
+  },
+  "bookDailyReport": {
+    "js": "/static/build/bookDailyReport.4be3d6b91f42ffde5d34.js"
+  },
+  "bookActivity": {
+    "js": "/static/build/bookActivity.e565fdf19706e81fc80e.js"
+  },
+  "userDashboard": {
+    "js": "/static/build/userDashboard.42dfdfb500465f4ee672.js"
+  },
+  "retention": {
+    "js": "/static/build/retention.1592650d7df06747a2a8.js"
+  },
+  "dashboard": {
+    "js": "/static/build/dashboard.6b3c95c00bf2ec833064.js"
+  },
+  "bookDashboard": {
+    "js": "/static/build/bookDashboard.37742d6724dd95766628.js"
+  },
+  "vendor": {
+    "js": "/static/build/vendor.a94cc52e4f759a2ad6d1.js",
+    "css": "/static/build/vendor.7fd0958fc8c187bfb966facc5060a661.css"
+  }
+}

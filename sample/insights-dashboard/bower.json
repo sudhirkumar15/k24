@@ -1,0 +1,15 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "description": "Dashboard",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/thirdparty/"
+  ],
+  "dependencies": {
+    "chosen": "^1.4.2"
+  }
+}

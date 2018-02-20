@@ -1,0 +1,194 @@
+<div class="wrapper">
+
+    {{> default/menu }}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Explore Events</h1>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box filter-container collapsed-box">
+                        <div class="box-header small">
+                            <h3 class="box-title">Filters</h3>
+                            <div class="pull-right box-tools">
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body has-dimension-control">
+                            <form action="" class="form-inline" id="datepicker-range">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Date </label>
+
+                                        <input type="text" class="form-control drpicker-input" name="daterange" value="{{fromDate}} - {{toDate}}" />
+
+                                        <div class="dimension-control pull-right">
+                                            <label class="label-large dimension-label">Dimension</label>
+                                            <div class="btn-group">
+                                                <button class="btn btn-default active" name="area" value="day">Day</button>
+                                                <button class="btn btn-default" name="bar" value="week">Week</button>
+                                                <button class="btn btn-default" name="line" value="month">Month</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Site </label>
+
+                                        <select class="store-select-box" data-placeholder="Select site">
+                                            {{#each user.stores}}
+                                                <option value="{{id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Institution</label>
+                                        <div class="segment-option">
+                                            <select multiple="true" class="select-box-large institution"
+                                                data-placeholder="All Institutions"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Segment by</label>
+                                        <div class="segment-option">
+                                            <select id="dd-segment" class="segment-select-box" data-placeholder="Select Segment">
+                                                <option value="">Select Segment</option>
+                                                <option value="event_type">Event Type</option>
+                                                <option value="device_platform">Platform</option>
+                                                <option value="device_make">Device Make</option>
+                                                <option value="device_model">Device Model</option>
+                                                <option value="app_version">App Version</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Filter by</label>
+                                        <div class="segment-option">
+                                            <select  class="select-box-large filter-by" data-placeholder="Select Filter">
+                                                <option value="event_type" selected>Event Type</option>
+                                                <option value="device_platform">Platform</option>
+                                                <option value="device_make">Device Make</option>
+                                                <option value="device_model">Device Model</option>
+                                                <option value="app_version">App Version</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row filter-val-row">
+                                    <div class="col-md-12">
+                                        <label class="label-large">Filter options</label>
+                                        <div class="segment-option">
+                                            <select multiple="true" class="select-box-large filters" data-placeholder=" Select Value">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                     <div class="col-md-12">
+                                        <label class="label-large">&nbsp; </label>
+
+                                        <button class="btn btn-primary btnApply" type="button">
+                                            <i class="fa fa-play"></i> &nbsp; Apply
+                                        </button>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header">
+                            <h3 class="box-title">Events</h3>
+                            <span class="box-title-help" name="" data-toggle="tooltip" data-placement="top" title="The count of all events which occured during the specified time period is captured in the events chart"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+
+                            <div class="pull-right">
+                                <div class="btn-group chart-type">
+                                    <button type="button" class="btn btn-transparent" name="area" data-toggle="tooltip" data-placement="top" title="Area chart"><i class="fa fa-area-chart"></i></button>
+                                    <button type="button" class="btn btn-transparent active" name="column" data-toggle="tooltip" data-placement="top" title="Column chart"><i class="fa fa-bar-chart"></i></button>
+                                    <button type="button" class="btn btn-transparent" name="line" data-toggle="tooltip" data-placement="top" title="Line chart"><i class="fa fa-line-chart"></i></button>
+                                    <button type="button" class="btn btn-transparent" name="bar" data-toggle="tooltip" data-placement="top" title="Bar chart"><i class="fa fa-signal"></i></button>
+                                    <button type="button" class="btn btn-transparent" name="scatter" data-toggle="tooltip" data-placement="top" title="Scatter plot"><i class="fa fa-circle-thin"></i></button>
+                                </div>
+
+                                <button class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="book-usage">
+                                <div class="loading">
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header">
+                            <h3 class="box-title">Data</h3>
+                            <div class="pull-right">
+                                <form name="export" method="post" action="/events/export">
+                                    <input type="hidden" name="export" value="">
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                    <button class="btn btn-box-tool btn-export" type="submit">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <span>Export</span>
+                                    </button>
+                                    <button class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus" type="submit"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="bookdata">
+                                <div class="loading">
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </section>
+    </div>
+</div>

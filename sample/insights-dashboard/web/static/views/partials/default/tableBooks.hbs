@@ -1,0 +1,24 @@
+<table class="table table-bordered table-striped report-list">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Format</th>
+        <th>{{tableHeader}}</th>
+    </thead>
+    <tbody>
+        {{#each rows}}
+            <tr>
+                {{#if ../showLink}}
+                    <td><a class="book-id" data-format="{{format}}" data-bookid="{{id}}"  data-event="{{../event}}" data-storeid={{../storeId}} href="#" >{{id}}</a></td>
+                {{else}}
+                    <td>{{id}}</td>
+                {{/if}}
+                <td>{{name}}</td>
+                <td>{{code}}</td>
+                <td>{{format}}</td>
+                <td>{{count}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
