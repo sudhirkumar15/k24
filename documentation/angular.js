@@ -22,6 +22,7 @@ pipe operatore ::
 ngOnInit() {
 	// here is the best place to call servises to load initial ata in system.
 } that Angular calls shortly after creating the component
+_______________________________________________
 
 
 

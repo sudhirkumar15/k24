@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TestingComponent } from './testing/testing.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestingComponent
+    TestingComponent,
+    HeroFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
